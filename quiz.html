@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore Catholic knowledge quizzes and interactive faith-based learning games with Lux Christi.">
+  <meta name="theme-color" content="#10213b">
+  <title>Quiz & Games | Lux Christi</title>
+  <link rel="icon" href="assets/images/lux-christi-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/pages/quiz.css">
+  <script type="module" src="js/main.js"></script>
+  <meta name="theme-color" content="#10213b">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/images/lux-christi-mark.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/lux-christi-192.png">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="Lux Christi home"><img src="assets/images/lux-christi-mark.svg" width="44" height="44" alt=""><span>Lux <b>Christi</b><small>LIGHT OF CHRIST</small></span></a>
+  <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-controls="mainNav" aria-expanded="false"><span class="menu-icon" aria-hidden="true">☰</span></button>
+  <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+    <a href="index.html">Home</a><a href="quiz.html" aria-current="page">Quiz & Games</a><a href="learn.html">Learn</a><a href="players.html">Top Winners</a><a href="community.html">Community</a><a href="about.html">About</a>
+  </nav>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme" title="Switch theme">☾</button>
+</header>
+<main id="main" class="quiz-platform">
+  <section class="quiz-hero page-section" aria-labelledby="quizHeroTitle">
+    <div class="quiz-hero-copy">
+      <span class="eyebrow">LEARN · PLAY · GROW IN FAITH</span>
+      <h1 id="quizHeroTitle">Knowledge grows when <em>faith meets discovery.</em></h1>
+      <p>Explore Scripture, deepen your understanding of the Catholic faith and challenge yourself with engaging learning games. Choose an experience and see how much you know.</p>
+      <a class="button button-gold" href="#activitySelection">Choose your challenge <span aria-hidden="true">↓</span></a>
+    </div>
+    <div class="quiz-hero-art" aria-hidden="true"><div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div><div class="hero-cross">✝</div><span class="hero-star star-one">✦</span><span class="hero-star star-two">✧</span></div>
+  </section>
+
+  <section class="quiz-leaders page-section" aria-labelledby="quizLeadersTitle">
+    <div class="section-heading"><div><span class="eyebrow">EXCELLENCE WORTH CELEBRATING</span><h2 id="quizLeadersTitle">Meet our <em>Top Winners.</em></h2></div><p>Celebrating learners who keep growing in knowledge, consistency and faith.</p></div>
+    <div class="leaderboard leaderboard-preview" id="quizLeaderboard" data-player-limit="3" aria-live="polite"></div>
+    <a class="quiz-leader-link button button-gold" href="players.html">View all Top Winners <span aria-hidden="true">→</span></a>
+  </section>
+
+  <section class="activity-hub page-section" id="activitySelection" aria-labelledby="activityTitle">
+    <div class="section-heading"><div><span class="eyebrow">YOUR NEXT STEP STARTS HERE</span><h2 id="activityTitle">Choose your <em>experience.</em></h2></div><p>Follow the simple steps to prepare for your activity. Your progress and results are recorded separately for quizzes and games.</p></div>
+
+    <div class="flow-progress" aria-label="Activity setup progress"><span class="flow-step is-current" data-flow-indicator="1">01 <small>Activity</small></span><i></i><span class="flow-step" data-flow-indicator="2">02 <small>Choose</small></span><i></i><span class="flow-step" data-flow-indicator="3">03 <small>Player</small></span></div>
+
+    <section class="flow-panel" id="activityStep" data-flow-step="1" aria-labelledby="activityStepTitle">
+      <div class="flow-panel-heading"><span class="eyebrow">STEP 01 · GET STARTED</span><h2 id="activityStepTitle">What would you like to do?</h2><p>Select one activity to continue.</p></div>
+      <div class="activity-choice-grid">
+        <button class="activity-choice" type="button" data-select-activity="quiz" aria-pressed="false"><span class="choice-icon" aria-hidden="true">✦</span><span class="choice-copy"><strong>Knowledge Quiz</strong><small>Test your understanding of Scripture, Catholic teaching, saints and devotions.</small></span><span class="choice-check" aria-hidden="true">✓</span></button>
+        <button class="activity-choice" type="button" data-select-activity="games" aria-pressed="false"><span class="choice-icon" aria-hidden="true">◇</span><span class="choice-copy"><strong>Catholic Games</strong><small>Learn through interactive challenges, riddles, identification and matching.</small></span><span class="choice-check" aria-hidden="true">✓</span></button>
+      </div>
+      <div class="flow-actions flow-actions-end"><button class="button button-gold" id="activityNext" type="button" disabled>Next <span aria-hidden="true">→</span></button></div>
+    </section>
+
+    <section class="flow-panel" id="selectionStep" data-flow-step="2" hidden aria-labelledby="selectionStepTitle">
+      <div class="flow-panel-heading"><span class="eyebrow">STEP 02 · MAKE YOUR SELECTION</span><h2 id="selectionStepTitle">Pick your category.</h2><p id="selectionStepDescription">Choose the subject you would like to explore.</p></div>
+      <div class="selection-grid" id="selectionGrid"></div>
+      <p class="flow-error" id="selectionError" role="alert"></p>
+      <div class="flow-actions"><button class="button button-light" type="button" data-flow-back="1">← Back</button><button class="text-button cancel-registration" type="button" data-cancel-registration>Cancel registration</button><button class="button button-gold" id="selectionNext" type="button" disabled>Next <span aria-hidden="true">→</span></button></div>
+    </section>
+
+    <section class="flow-panel" id="playerStep" data-flow-step="3" hidden aria-labelledby="playerStepTitle">
+      <div class="flow-panel-heading"><span class="eyebrow">STEP 03 · PLAYER DETAILS</span><h2 id="playerStepTitle">Enter your name.</h2><p>Your name will appear on the result card generated when you complete this activity.</p></div>
+      <form class="player-entry-form" id="playerEntryForm" novalidate>
+        <label for="playerName">Player's name <span aria-hidden="true">*</span></label>
+        <input id="playerName" name="playerName" type="text" autocomplete="name" maxlength="60" placeholder="Enter your full name" required>
+        <p class="flow-error" id="playerNameError" role="alert"></p>
+        <div class="flow-actions"><button class="button button-light" type="button" data-flow-back="2">← Back</button><button class="text-button cancel-registration" type="button" data-cancel-registration>Cancel registration</button><button class="button button-gold" id="startActivity" type="submit" disabled>Start activity <span aria-hidden="true">→</span></button></div>
+      </form>
+    </section>
+
+    <section class="countdown-screen" id="countdownScreen" hidden aria-live="assertive" aria-label="Activity starting countdown">
+      <span class="eyebrow">YOUR CHALLENGE IS ABOUT TO BEGIN</span><h2>Get ready!</h2><p>Focus your mind. Trust what you have learned.</p><div class="countdown-number" id="countdownNumber">5</div><span class="countdown-caption">The challenge begins in</span><button class="text-button countdown-cancel" id="cancelCountdown" type="button">Cancel and go back</button>
+    </section>
+
+    <section class="activity-session" id="activitySession" hidden aria-label="Active quiz or game">
+      <div class="session-summary-bar"><div><span class="eyebrow">PLAYER</span><strong id="sessionPlayer"></strong></div><div><span class="eyebrow">ACTIVITY</span><strong id="sessionActivity"></strong></div><div><span class="eyebrow">POINTS</span><strong id="sessionScore">0</strong></div><button class="button button-light session-exit" id="exitActivity" type="button">Exit activity</button></div>
+      <div class="integrity-warning" id="integrityWarning" role="status" hidden>Leaving the activity may be recorded. Please keep this window active while you play.</div>
+      <div class="session-play-area protected-content" id="sessionPlayArea" aria-live="polite"></div>
+      <p class="security-note">This practice experience includes browser-level copying deterrents. Official competition scores require secure server-side validation.</p>
+    </section>
+
+    <section class="activity-results" id="activityResults" hidden aria-labelledby="resultTitle"></section>
+  </section>
+</main>
+
+<dialog class="process-confirm-dialog" id="processConfirmDialog" aria-labelledby="processConfirmTitle" aria-describedby="processConfirmMessage">
+  <form method="dialog" class="process-confirm-card">
+    <span class="eyebrow">LUX CHRISTI · CONFIRMATION</span>
+    <h2 id="processConfirmTitle">Are you sure you want to leave?</h2>
+    <p id="processConfirmMessage">Your current progress may be lost if you exit now.</p>
+    <div class="process-confirm-actions">
+      <button class="button button-light" id="processConfirmNo" type="submit" value="cancel">Continue Playing</button>
+      <button class="button button-gold" id="processConfirmYes" type="submit" value="confirm">Yes, Exit</button>
+    </div>
+  </form>
+</dialog>
+
+<footer class="site-footer">
+  <a class="brand brand-footer" href="index.html"><img src="assets/images/lux-christi-mark.svg" width="40" height="40" alt=""><span>Lux <b>Christi</b><small>LIGHT OF CHRIST</small></span></a>
+  <p>Learn with purpose. Play with joy. Grow in faith.</p>
+  <div><a href="about.html">About</a><a href="community.html">Community</a><a href="about.html#contact">Contact</a><a href="#main">Back to top ↑</a></div>
+  <small>© <span id="year"></span> Lux Christi. A growing digital learning initiative.</small>
+</footer>
+</body>
+</html>

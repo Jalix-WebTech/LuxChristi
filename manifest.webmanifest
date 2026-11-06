@@ -1,0 +1,19 @@
+{
+  "id": "./index.html",
+  "name": "Lux Christi — Learn, Play and Grow",
+  "short_name": "Lux Christi",
+  "description": "A faith-centred space to learn, play, grow and connect.",
+  "lang": "en",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f7f4ec",
+  "theme_color": "#10213b",
+  "categories": ["education", "games", "lifestyle"],
+  "icons": [
+    { "src": "./assets/icons/lux-christi-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./assets/icons/lux-christi-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./assets/icons/lux-christi-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

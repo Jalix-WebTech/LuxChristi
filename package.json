@@ -1,0 +1,13 @@
+{
+  "name": "lux-christi-frontend",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "description": "Vanilla HTML, CSS and JavaScript learning and games platform for Lux Christi.",
+  "scripts": {
+    "check": "node scripts/validate-project.mjs",
+    "test": "node scripts/test-quiz-engine.mjs",
+    "download:picture-assets": "node scripts/download-picture-assets.mjs",
+    "serve": "python -m http.server 8000"
+  }
+}
