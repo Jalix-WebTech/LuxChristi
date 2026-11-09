@@ -13,9 +13,7 @@
 <link href="css/components.css" rel="stylesheet"/>
 <link href="css/pages.css" rel="stylesheet"/>
 <script src="js/main.js" type="module"></script>
-  <meta name="theme-color" content="#10213b">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="assets/images/lux-christi-mark.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/icons/lux-christi-192.png">
 </head>
 <body>
@@ -27,6 +25,7 @@
 <a href="index.html">Home</a>
 <a href="quiz.html">Quiz &amp; Games</a>
 <a href="learn.html">Learn</a>
+<a href="events.html">Events</a>
 <a href="players.html">Top Winners</a>
 <a href="community.html">Community</a>
 <a href="about.html">About</a>
@@ -34,20 +33,75 @@
 <button aria-label="Switch to dark theme" class="theme-toggle" id="themeToggle" title="Switch theme" type="button">☾</button>
 </header>
 <main id="main">
-<section class="section page-section" id="resources">
-<div class="section-heading"><div><span class="eyebrow">LEARNING LIBRARY</span><h2>Explore. Reflect. <em>Understand.</em></h2></div><p>Start with a topic that interests you.</p></div>
-<div class="resource-grid">
-<article class="resource-card"><span>01 / SCRIPTURE</span><div class="resource-icon">▤</div><h3>Digital Bible</h3><p>Explore Scripture references and guided reading materials.</p><a class="button button-secondary" href="https://www.vatican.va/archive/ENG0015/_INDEX.HTM" rel="noopener" target="_blank">Read the Catechism Archive <span aria-hidden="true">↗</span></a></article>
-<article class="resource-card"><span>02 / INSPIRATION</span><div class="resource-icon">✧</div><h3>Saints &amp; virtues</h3><p>Discover the lives and witness of people recognised for holiness.</p><a class="button button-secondary" href="https://www.vatican.va/" rel="noopener" target="_blank">Visit the Vatican Website <span aria-hidden="true">↗</span></a></article>
-<article class="resource-card"><span>03 / FORMATION</span><div class="resource-icon">⌖</div><h3>Catholic doctrine</h3><p>Build an understanding of the sacraments and Church teaching.</p><a class="button button-secondary" href="https://www.usccb.org/" rel="noopener" target="_blank">Explore Catholic Resources <span aria-hidden="true">↗</span></a></article>
-</div>
+<section class="section page-section learning-section" id="resources" aria-labelledby="learningHeading">
+  <div class="section-heading learning-heading">
+    <div>
+      <span class="eyebrow">LEARNING LIBRARY</span>
+      <h1 id="learningHeading">Explore. Reflect. <em>Understand.</em></h1>
+    </div>
+    <p>Explore Catholic faith formation through Scripture, Church teaching, prayer and Christian life.</p>
+  </div>
+
+  <div class="learning-intro" role="note">
+    <span class="learning-intro-icon" aria-hidden="true">✧</span>
+    <div><strong>Grow in knowledge and faith.</strong><p>Browse the collection, search for a topic, or save useful resources for quick access later.</p></div>
+  </div>
+
+  <section class="local-learning" aria-labelledby="localLearningHeading">
+    <div class="local-learning-heading">
+      <div><span class="eyebrow">AVAILABLE OFFLINE</span><h2 id="localLearningHeading">Study lessons on Lux Christi</h2></div>
+      <p>Read these starter lessons without leaving the app. Your completion status is saved on this device.</p>
+    </div>
+    <div class="learning-progress" aria-live="polite"><div><strong id="lessonProgressText">0 of 3 lessons completed</strong><span id="lessonProgressPercent">0%</span></div><div class="learning-progress-track"><span id="lessonProgressBar"></span></div></div>
+
+    <section class="curriculum-browser" aria-labelledby="curriculumBrowserTitle">
+      <div class="curriculum-browser-heading">
+        <div><span class="eyebrow">CATHOLIC FAITH FORMATION</span><h3 id="curriculumBrowserTitle">Explore Catholic learning areas</h3></div>
+        <button class="text-button" id="showAllLessons" type="button">Browse learning areas ↗</button>
+      </div>
+      <div class="curriculum-navigation-tools"><p class="curriculum-breadcrumbs" id="curriculumBreadcrumbs" aria-label="Current learning location">Learning Centre</p><button class="text-button" id="curriculumBackButton" type="button" hidden>← Back</button></div>
+      <p class="curriculum-message" id="curriculumMessage" role="status" aria-live="polite">Choose a Catholic learning area.</p>
+      <div class="curriculum-navigation" id="curriculumNavigation" aria-label="Curriculum navigation"></div>
+    </section>
+
+    <div class="lesson-collection-heading"><h3 id="lessonCollectionHeading">All published Catholic faith-formation lessons</h3><span>Locally hosted · Available offline</span></div>
+    <div class="local-lesson-grid" id="localLessonGrid" aria-label="Locally hosted lessons"></div>
+  </section>
+
+  <section class="lesson-reader" id="lessonReader" aria-labelledby="lessonReaderTitle" hidden>
+    <div class="lesson-reader-toolbar"><button class="text-button" id="closeLesson" type="button">← Back to lessons</button><span class="lesson-offline-badge">● Available offline</span></div>
+    <article id="lessonContent"></article>
+  </section>
+
+  <div class="learning-tools" aria-label="Learning resource filters">
+    <label class="resource-search-label" for="resourceSearch">Search the library</label>
+    <div class="learning-search-row">
+      <input id="resourceSearch" type="search" placeholder="Search Scripture, saints, prayer..." autocomplete="off">
+      <button class="button button-secondary" id="savedResourcesOnly" type="button" aria-pressed="false">☆ Saved resources</button>
+    </div>
+    <div class="learning-filter-row">
+      <label for="resourceCategory">Category</label>
+      <select id="resourceCategory" aria-label="Filter by category"></select>
+      <button class="text-button" id="clearResourceFilters" type="button">Clear filters</button>
+    </div>
+    <div class="resource-filter-chips" id="resourceCategoryButtons" aria-label="Browse by category"></div>
+    <div class="resource-results-line"><p id="resourceCount" aria-live="polite">Loading resources…</p><span>External links require internet access; Lux Christi lessons are stored locally.</span></div>
+  </div>
+
+  <div class="learning-resource-grid" id="learningResourceGrid" aria-label="Learning resources"></div>
+  <div class="resource-empty-state" id="resourceEmptyState" hidden>
+    <span aria-hidden="true">⌕</span><h2>No resources found</h2><p>Try another search term or clear the filters to see the full library.</p>
+    <button class="button button-secondary" type="button" id="emptyClearButton">Show all resources</button>
+  </div>
+  <p class="resource-status" id="resourceStatus" role="status" aria-live="polite"></p>
+  <div class="learning-note"><strong>About this library</strong><p>The locally hosted starter lessons are bundled with Lux Christi and can be read offline after the updated app shell is installed. The external resource links below are operated by their respective publishers and may require internet access. Bookmarks and lesson progress are stored on this device.</p></div>
 </section>
 </main>
 <footer class="site-footer">
 <a class="brand brand-footer" href="index.html"><img alt="" height="40" src="assets/images/lux-christi-mark.svg" width="40"/><span>Lux <b>Christi</b><small>LIGHT OF CHRIST</small></span></a>
 <p>Learn with purpose. Play with joy. Grow in faith.</p>
-<div><a href="about.html">About</a><a href="community.html">Community</a><a href="about.html#contact">Contact</a><a href="#main">Back to top ↑</a></div>
-<small>© <span id="year"></span> Lux Christi. A growing digital learning initiative.</small>
+<div><a href="events.html">Events</a><a href="about.html">About</a><a href="community.html">Community</a><a href="about.html#contact">Contact</a><a href="mailto:jamefelix1262002@gmail.com">Email us</a><a href="#main">Back to top ↑</a></div>
+<small>© <span id="year"></span> Lux Christi. Catholic faith formation, learning, competition and community.</small>
 </footer>
 </body>
 </html>

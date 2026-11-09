@@ -45,10 +45,6 @@ The constants and formula are in `js/quiz/scoring.js` so difficulty and scoring 
 
 Question-bank totals and stored question counts are intentionally not displayed in the category or game selection interface. During play, the interface shows the current question number, not the stored bank size or total number of available questions.
 
-## Picture assets
-
-Picture questions point first to local files in `assets/images/quiz/picture-quiz/` and fall back to Wikimedia Commons URLs. Run `npm run download:picture-assets` from a network-enabled environment to download the listed images. Source and licence references are in `assets/images/quiz/picture-quiz/sources.json`; review the current source-page terms before publishing.
-
 ## Future backend boundary
 
 This is a browser-based practice implementation. Static JavaScript banks contain correct answers and can be inspected. Client-side timers, focus tracking, disabled copy shortcuts and local scores can be bypassed or modified. Official competitions should use authenticated attempts, server-delivered questions, server-side answer validation, server-controlled deadlines, authoritative scoring, rate limiting and audit logs.

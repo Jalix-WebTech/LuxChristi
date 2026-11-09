@@ -114,11 +114,21 @@ export function initSite() {
     event.preventDefault();
     if (!feedbackForm.reportValidity()) return;
     const data = new FormData(feedbackForm);
-    const subject = encodeURIComponent(String(data.get("subject") || "Lux Christi feedback"));
-    const body = encodeURIComponent(`Name: ${data.get("name")}\nEmail: ${data.get("email")}\n\n${data.get("message")}`);
+    // WhatsApp expects an international-format phone number without the + sign.
+    // Nigeria's country code (234) replaces the leading zero in the supplied number.
+    const whatsappNumber = "2348155141240";
+    const message = [
+      "LUX CHRISTI FEEDBACK",
+      "",
+      `Name: ${data.get("name")}`,
+      `Email: ${data.get("email")}`,
+      `Subject: ${data.get("subject")}`,
+      "",
+      String(data.get("message") || "")
+    ].join("\n");
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     const note = $("#formNote");
-    if (note) note.textContent = "Opening your email application. Review and send the message there.";
-    // Replace this demo address with the project's official contact address before launch.
-    window.location.href = `mailto:hello@luxchristi.example?subject=${subject}&body=${body}`;
+    if (note) note.textContent = "WhatsApp is opening with your feedback. Review the message and tap Send.";
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   });
 }

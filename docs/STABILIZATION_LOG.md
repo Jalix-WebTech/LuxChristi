@@ -12,14 +12,13 @@ This pass prepares the current frontend MVP for the next development phase witho
 
 ### Outstanding items
 
-- Ten picture-quiz JPEG assets are referenced but not bundled. The existing downloader was attempted during this pass, but the environment could not resolve `commons.wikimedia.org` (`EAI_AGAIN`). The quiz currently relies on its configured remote-image fallback when online. Retry `npm run download:picture-assets` from a network-enabled development environment and verify each source/licence before redistribution.
-- The WhatsApp community invitation and feedback email remain placeholders. Replace them only after the official contact details are supplied.
+- The official WhatsApp community invitation and feedback destination are configured. The feedback form opens a prefilled WhatsApp message to the supplied contact number; visitors must review and send it themselves.
 - Browser-level testing and accessibility review are still outstanding; Node tests and static validation do not replace testing in real browsers and devices.
 
 ### Validation
 
 - `npm test` — passed.
-- `npm run check` — passed; the ten missing picture files remain warnings.
+- `npm run check` — passed.
 - JavaScript syntax checks — run across project `.js` and `.mjs` files in this stabilization pass.
 
 ### Next recommended phase

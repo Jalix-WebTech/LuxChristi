@@ -151,7 +151,6 @@ function categoryDescription(id) {
     "catholic-doctrine": "Discover the beliefs and teachings of the Catholic Church.",
     "saints-and-virtues": "Learn about holy men and women and the virtues they lived.",
     riddles: "Solve faith-inspired riddles and test your reasoning.",
-    "picture-quiz": "Identify Catholic subjects through visual clues.",
     "legion-of-mary": "Explore the Legion of Mary and its spirituality.",
     "sacred-heart": "Reflect on devotion to the Sacred Heart of Jesus.",
     "st-anthony": "Discover the life and devotion associated with St. Anthony.",
@@ -163,7 +162,7 @@ function categoryDescription(id) {
 function categoryIcon(id) {
   const icons = {
     "bible-knowledge": "▤", "catholic-doctrine": "✝", "saints-and-virtues": "✧",
-    riddles: "?", "picture-quiz": "▧", "legion-of-mary": "♙", "sacred-heart": "♡",
+    riddles: "?", "legion-of-mary": "♙", "sacred-heart": "♡",
     "st-anthony": "✦", "other-devotions": "◇",
   };
   return icons[id] || "✦";
@@ -241,14 +240,6 @@ function renderQuestion() {
   state.locked = false;
   const question = currentQuestion();
   const playArea = $("#sessionPlayArea");
-  const isPicture = question.type === "picture";
-  const pictureMarkup = isPicture ? `
-    <figure class="picture-question">
-      <img src="${escapeHTML(question.image)}" data-fallback="${escapeHTML(question.imageFallback || "")}" alt="${escapeHTML(question.imageAlt || "Picture clue")}" loading="eager">
-      <figcaption hidden>Image unavailable. Please check your connection or the picture asset.</figcaption>
-      <a class="image-credit" href="${escapeHTML(question.imageCredit || "https://commons.wikimedia.org/")}" target="_blank" rel="noopener noreferrer">Image source and licence ↗</a>
-    </figure>` : "";
-
   playArea.classList.add("is-protected");
   playArea.dataset.activityType = state.activity;
   playArea.innerHTML = `
@@ -256,24 +247,10 @@ function renderQuestion() {
     <div class="question-timer-row"><span class="timer-label">TIME REMAINING</span><strong class="question-timer" id="timerCount">${QUESTION_SECONDS}s</strong></div>
     <div class="question-timer-track" role="progressbar" aria-label="Question time remaining" aria-valuemin="0" aria-valuemax="${QUESTION_SECONDS}" aria-valuenow="${QUESTION_SECONDS}"><span id="timerFill"></span></div>
     <p class="question-topic">${escapeHTML(question.category || selectedLabel())}</p>
-    ${pictureMarkup}
     <h2 class="active-question-title">${escapeHTML(question.question)}</h2>
     <div class="active-answer-grid">${question.answers.map((answer, index) => `
       <button class="active-answer" type="button" data-answer-index="${index}"><span class="answer-letter">${String.fromCharCode(65 + index)}</span><span>${escapeHTML(answer)}</span></button>`).join("")}</div>
     <div class="question-feedback" id="questionFeedback" role="status" aria-live="polite"></div>`;
-
-  const image = $(".picture-question img", playArea);
-  if (image) {
-    image.addEventListener("error", () => {
-      if (image.dataset.fallback && !image.dataset.fallbackTried) {
-        image.dataset.fallbackTried = "true";
-        image.src = image.dataset.fallback;
-      } else {
-        image.hidden = true;
-        image.nextElementSibling.hidden = false;
-      }
-    });
-  }
 
   playArea.querySelectorAll("[data-answer-index]").forEach(button => {
     button.addEventListener("click", () => {

@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { createQuiz, getQuestions, isCorrect, getBankCounts } from "../js/quiz/quiz-engine.js";
 import { validatePlayerName } from "../js/quiz/quiz-validation.js";
 import { calculateQuestionScore, SCORING } from "../js/quiz/scoring.js";
-import { questionBanks } from "../js/question-banks/index.js";
+import { questionBanks, categoryOptions } from "../js/question-banks/index.js";
 import { games } from "../js/games/index.js";
 import { ACHIEVEMENT_TIERS, getAchievement } from "../js/quiz/achievements.js";
 import { getCommunityDetails } from "../js/services/resultService.js";
@@ -14,7 +14,9 @@ for (const [category, count] of Object.entries(getBankCounts())) {
 }
 
 const allQuestions = getQuestions("all");
-assert.equal(allQuestions.length, 90, "All Categories should aggregate every question bank");
+assert.equal(allQuestions.length, Object.values(questionBanks).reduce((total, bank) => total + bank.length, 0), "All Categories should aggregate every registered question bank");
+assert.equal(Object.keys(questionBanks).length, 8, "Exactly eight active quiz categories should be registered");
+assert.equal(categoryOptions.length, 9, "The category selector should contain All Categories and eight active categories");
 const allAttempt = createQuiz("all", 10);
 assert.equal(allAttempt.length, 10, "All Categories should create a ten-question attempt");
 assert.equal(new Set(allAttempt.map(item => item.id)).size, 10, "A single attempt should not repeat a question");

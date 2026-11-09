@@ -30,3 +30,7 @@ This is a static frontend PWA foundation, not a full offline data-sync system. A
 5. Open an unvisited route offline and confirm the offline page appears if no cached route exists.
 6. Publish a changed service worker and confirm the update notice appears after the new worker installs.
 7. Test install behavior on Android/desktop Chromium and separately verify the iOS Add to Home Screen path.
+
+## Learning Centre offline behaviour
+
+The Learning Centre catalogue and its filtering/bookmarking code are included in the application-shell cache. Once the updated service worker has installed, the catalogue interface and its built-in resource metadata can load offline. The external publishers' websites remain external and may require internet access. A saved bookmark is stored in the browser's local storage; it is not a downloaded copy of the linked material.

@@ -1,9 +1,9 @@
 /*
  * Lux Christi service worker
- * Caches the public application shell only. Do not add private records,
- * authentication tokens, or future personalised API responses here.
+ * Caches the public Catholic-platform application shell only. Never cache
+ * authentication tokens, private records, or personalised API responses.
  */
-const CACHE_VERSION = "lux-christi-shell-v1";
+const CACHE_VERSION = "lux-christi-shell-v11";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -14,6 +14,13 @@ const APP_SHELL = [
   "./quiz.html",
   "./games.html",
   "./offline.html",
+  "./js/modules/eventDetailsController.js",
+  "./js/modules/eventsController.js",
+  "./js/services/eventService.js",
+  "./js/data/events.js",
+  "./css/pages/events.css",
+  "./event.html",
+  "./events.html",
   "./manifest.webmanifest",
   "./css/tokens.css",
   "./css/base.css",
@@ -23,6 +30,12 @@ const APP_SHELL = [
   "./js/main.js",
   "./js/modules/siteController.js",
   "./js/modules/playerController.js",
+  "./js/modules/learningController.js",
+  "./js/modules/curriculumBrowserController.js",
+  "./js/data/learningResources.js",
+  "./js/data/localLessons.js",
+  "./js/data/curriculumCatalog.js",
+  "./js/services/curriculumRepository.js",
   "./js/data/playerData.js",
   "./assets/images/lux-christi-mark.svg",
   "./assets/icons/lux-christi-192.png",
@@ -30,7 +43,7 @@ const APP_SHELL = [
   "./assets/icons/lux-christi-maskable-512.png"
 ];
 
-self.addEventListener("install", (event) => {
+self.addEventListener("install", event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_VERSION);
     await cache.addAll(APP_SHELL);
@@ -38,19 +51,17 @@ self.addEventListener("install", (event) => {
   })());
 });
 
-self.addEventListener("activate", (event) => {
+self.addEventListener("activate", event => {
   event.waitUntil((async () => {
     const keys = await caches.keys();
-    await Promise.all(keys.filter((key) => key.startsWith("lux-christi-shell-") && key !== CACHE_VERSION)
-      .map((key) => caches.delete(key)));
+    await Promise.all(keys.filter(key => key.startsWith("lux-christi-shell-") && key !== CACHE_VERSION).map(key => caches.delete(key)));
     await self.clients.claim();
   })());
 });
 
-self.addEventListener("fetch", (event) => {
+self.addEventListener("fetch", event => {
   const request = event.request;
   if (request.method !== "GET") return;
-
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
 
@@ -70,7 +81,6 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Static same-origin assets use cache-first with a network refresh fallback.
   event.respondWith((async () => {
     const cached = await caches.match(request);
     if (cached) return cached;
@@ -81,8 +91,6 @@ self.addEventListener("fetch", (event) => {
         cache.put(request, response.clone());
       }
       return response;
-    } catch {
-      return Response.error();
-    }
+    } catch { return Response.error(); }
   })());
 });
