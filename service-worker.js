@@ -3,7 +3,7 @@
  * Caches the public Catholic-platform application shell only. Never cache
  * authentication tokens, private records, or personalised API responses.
  */
-const CACHE_VERSION = "lux-christi-shell-v11";
+const CACHE_VERSION = "lux-christi-shell-v12";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -37,6 +37,9 @@ const APP_SHELL = [
   "./js/data/curriculumCatalog.js",
   "./js/services/curriculumRepository.js",
   "./js/data/playerData.js",
+  "./assets/images/players/top-winner-01.jpg",
+  "./assets/images/players/top-winner-02.jpg",
+  "./assets/images/players/top-winner-03.jpg",
   "./assets/images/lux-christi-mark.svg",
   "./assets/icons/lux-christi-192.png",
   "./assets/icons/lux-christi-512.png",
