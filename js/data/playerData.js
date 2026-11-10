@@ -1,7 +1,7 @@
 // Demo entries. Replace with verified player data and image URLs from your API.
 // `score` is numeric so the leaderboard can rank records independently of display formatting.
 export const players = [
-  {name:"Grace Adebayo",diocese:"Ibadan Archdiocese",parish:"Sample Parish",score:2480,points:"2,480",rank:"01",photo:"assets/images/players/top-winner-01.jpg"},
-  {name:"Michael Okafor",diocese:"Enugu Diocese",parish:"Sample Parish",score:2210,points:"2,210",rank:"02",photo:"assets/images/players/top-winner-02.jpg"},
+  {name:"Grace Adebayo",diocese:"Ibadan Archdiocese",parish:"Sample Parish",score:2480,points:"2,480",rank:"01",photo:"assets/images/players/top-winner-02.jpg"},
+  {name:"Michael Okafor",diocese:"Enugu Diocese",parish:"Sample Parish",score:2210,points:"2,210",rank:"02",photo:"assets/images/players/top-winner-01.jpg"},
   {name:"Esther Bello",diocese:"Lagos Archdiocese",parish:"Sample Parish",score:1960,points:"1,960",rank:"03",photo:"assets/images/players/top-winner-03.jpg"}
 ];
