@@ -17,8 +17,8 @@ export function initSite() {
     }
   };
 
-  let savedTheme = "light";
-  try { savedTheme = localStorage.getItem("lux-theme") || "light"; } catch (error) {
+  let savedTheme = "dark";
+  try { savedTheme = localStorage.getItem("lux-theme") || "dark"; } catch (error) {
     console.warn("Theme preference could not be read from local storage.", error);
   }
   applyTheme(savedTheme === "dark" ? "dark" : "light");

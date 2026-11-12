@@ -83,3 +83,8 @@ The next architectural milestone is backend foundation and authentication planni
 - Contact email: jamefelix1262002@gmail.com
 - Feedback form delivery: WhatsApp (+234 815 514 1240)
 - WhatsApp community: https://chat.whatsapp.com/GhzQVa36nuB346vXO4Ei5A
+
+
+## Visual design system
+
+The current visual identity uses a charcoal-and-champagne-gold dark theme by default, with a complementary warm-cream light theme. Shared design tokens live in `css/tokens.css`; the visual refinement layer is `css/design-system.css`. The existing theme toggle and saved preference remain in use.
