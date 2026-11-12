@@ -9,7 +9,7 @@ export function initSite() {
   const applyTheme = theme => {
     document.documentElement.dataset.theme = theme;
     const themeColor = document.querySelector('meta[name="theme-color"]');
-    if (themeColor) themeColor.setAttribute("content", theme === "dark" ? "#111316" : "#f4f1e9");
+    if (themeColor) themeColor.setAttribute("content", theme === "dark" ? "#111110" : "#fbf9f3");
     if (themeButton) {
       const isDark = theme === "dark";
       themeButton.textContent = isDark ? "☀" : "☾";

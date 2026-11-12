@@ -12,8 +12,8 @@ export async function renderResultCanvas(details) {
 
   const tier = details.achievement;
   const background = ctx.createLinearGradient(0, 0, WIDTH, HEIGHT);
-  background.addColorStop(0, "#10213b");
-  background.addColorStop(1, "#1b3454");
+  background.addColorStop(0, "#141413");
+  background.addColorStop(1, "#302a1a");
   ctx.fillStyle = background;
   ctx.fillRect(0, 0, WIDTH, HEIGHT);
   ctx.strokeStyle = tier.theme;
@@ -187,7 +187,7 @@ function drawInitials(ctx, name, x, y, radius) {
   ctx.arc(x, y, radius, 0, Math.PI * 2);
   ctx.fillStyle = "#d7ad58";
   ctx.fill();
-  ctx.fillStyle = "#10213b";
+  ctx.fillStyle = "#211a0d";
   ctx.font = "bold 90px Arial";
   ctx.fillText(initials || "LC", x, y + 30);
 }
