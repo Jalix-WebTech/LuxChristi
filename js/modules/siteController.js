@@ -8,6 +8,8 @@ export function initSite() {
   const themeButton = $("#themeToggle");
   const applyTheme = theme => {
     document.documentElement.dataset.theme = theme;
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    if (themeColor) themeColor.setAttribute("content", theme === "dark" ? "#111316" : "#f4f1e9");
     if (themeButton) {
       const isDark = theme === "dark";
       themeButton.textContent = isDark ? "☀" : "☾";
