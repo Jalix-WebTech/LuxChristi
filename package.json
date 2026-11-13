@@ -6,7 +6,7 @@
   "description": "Catholic faith formation, quiz, games and community platform built with HTML5, CSS3 and Vanilla JavaScript.",
   "scripts": {
     "check": "node scripts/validate-project.mjs",
-    "test": "node scripts/test-quiz-engine.mjs && node scripts/test-learning-centre.mjs && node scripts/test-local-lessons.mjs && node scripts/test-curriculum.mjs && node scripts/test-events.mjs",
+    "test": "node scripts/test-quiz-engine.mjs && node scripts/test-learning-centre.mjs && node scripts/test-local-lessons.mjs && node scripts/test-curriculum.mjs && node scripts/test-events.mjs && node scripts/test-homepage.mjs",
     "test:learning": "node scripts/test-learning-centre.mjs && node scripts/test-local-lessons.mjs && node scripts/test-curriculum.mjs",
     "serve": "python -m http.server 8000"
   }

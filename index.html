@@ -12,7 +12,8 @@
 <link href="css/base.css" rel="stylesheet"/>
 <link href="css/components.css" rel="stylesheet"/>
 <link href="css/pages.css" rel="stylesheet"/>
-<link rel="stylesheet" href="css/design-system.css">
+<link rel="stylesheet" href="css/design-system.css"/>
+<link rel="stylesheet" href="css/homepage.css"/>
 <script src="js/main.js" type="module"></script>
   <meta name="theme-color" content="#111110">
   <link rel="manifest" href="manifest.webmanifest">
@@ -35,7 +36,7 @@
 </nav>
 <button aria-label="Switch to dark theme" class="theme-toggle" id="themeToggle" title="Switch theme" type="button">☾</button>
 </header>
-<main id="main">
+<main id="main" data-homepage>
 
 <section class="daily-inspiration" aria-labelledby="daily-inspiration-title">
 <div class="daily-inspiration-mark" aria-hidden="true">✝</div>
@@ -48,17 +49,33 @@
 <section class="competition-announcement" aria-labelledby="competitionAnnouncementTitle">
 <div class="competition-announcement-copy">
 <span class="eyebrow">FAITH · FELLOWSHIP · EXCELLENCE</span>
-<h2 id="competitionAnnouncementTitle">Discover Lux Christi <em>Events &amp; Competitions.</em></h2>
+<h1 id="competitionAnnouncementTitle">Discover Lux Christi <em>Events &amp; Competitions.</em></h1>
 <p>Explore upcoming Catholic faith challenges, find participation information and follow official competition results.</p>
 </div>
 <a class="button button-gold" href="events.html">Explore Events <span aria-hidden="true">→</span></a>
 </section>
 <section class="stats-strip" aria-label="Platform highlights"><div><strong>01</strong><span>Faith-centred learning</span></div><div><strong>02</strong><span>Interactive challenges</span></div><div><strong>03</strong><span>Community connection</span></div><div><strong>∞</strong><span>Room to grow</span></div></section>
+<section class="home-welcome page-section" aria-labelledby="welcome-title">
+  <div><span class="eyebrow">LEARN · PLAY · COMPETE · CONNECT</span><h2 id="welcome-title">Welcome to <em>Lux Christi.</em></h2><p>A Catholic space to deepen your faith, discover trusted learning resources, take part in friendly challenges and grow together.</p><div class="home-welcome-actions"><a class="button button-gold" href="quiz.html#activitySelection">Get started <span aria-hidden="true">→</span></a><a class="button button-secondary" href="#explore">Explore the platform</a></div></div>
+  <div class="welcome-emblem" aria-hidden="true"><img src="assets/images/lux-christi-mark.svg" alt="" width="136" height="136"></div>
+</section>
+<section class="home-quick-section page-section" aria-labelledby="quick-nav-title"><div class="home-section-heading"><div><span class="eyebrow">YOUR NEXT STEP</span><h2 id="quick-nav-title">Explore <em>Lux Christi.</em></h2></div><p>Move quickly to the areas that help you learn, participate and connect.</p></div><nav class="quick-nav-grid" id="homepageQuickNav" aria-label="Quick links"><a href="learn.html">Learning Centre</a><a href="quiz.html#activitySelection">Quiz &amp; Games</a><a href="events.html">Events</a><a href="players.html">Top Winners</a></nav></section>
+<section class="home-stories-section page-section" aria-labelledby="stories-title"><div class="home-section-heading"><div><span class="eyebrow">DISCOVER SOMETHING NEW</span><h2 id="stories-title">Explore <em>today.</em></h2></div><p>A quick, swipeable way to discover different parts of the platform.</p></div><div class="home-stories-rail" data-carousel><button class="carousel-control" type="button" data-carousel-direction="previous" aria-label="Scroll discovery links backward" disabled>‹</button><div class="home-stories-track" data-carousel-track tabindex="0" aria-label="Discovery links" id="homepageStories"><a class="story-item" href="learn.html"><span class="story-ring"><span aria-hidden="true">✧</span></span><b>Learn</b></a><a class="story-item" href="quiz.html"><span class="story-ring"><span aria-hidden="true">✦</span></span><b>Quizzes</b></a><a class="story-item" href="events.html"><span class="story-ring"><span aria-hidden="true">♜</span></span><b>Events</b></a></div><button class="carousel-control" type="button" data-carousel-direction="next" aria-label="Scroll discovery links forward">›</button></div></section>
+<section class="home-content-section page-section" id="latest-results" aria-labelledby="latest-results-title"><div class="home-section-heading"><div><span class="eyebrow">CELEBRATING PROGRESS</span><h2 id="latest-results-title">Latest <em>results.</em></h2></div><p>Official results will be displayed here when competitions and activities have verified records.</p></div><div id="latestResultsMount" data-homepage-status><div class="home-empty-state"><h3>Results will appear here</h3><p>No official results have been published yet.</p></div></div></section>
+<div id="homepageDiscoverySections"></div>
+<section class="home-content-section page-section" id="daily-challenge" aria-labelledby="daily-challenge-title"><div class="home-section-heading"><div><span class="eyebrow">A LITTLE PRACTICE EACH DAY</span><h2 id="daily-challenge-title">Daily Catholic <em>challenge.</em></h2></div><p>Take a short, self-paced step in learning and reflection.</p></div><div id="dailyChallengeMount"><div class="home-empty-state"><p>Open Quiz &amp; Games to choose a challenge.</p><a href="quiz.html#activitySelection">Explore activities</a></div></div></section>
+<section class="home-content-section page-section" id="upcoming-events" aria-labelledby="upcoming-events-title"><div class="home-section-heading"><div><span class="eyebrow">TAKE PART</span><h2 id="upcoming-events-title">Upcoming <em>competitions.</em></h2></div><p>Find official dates, participation details and registration information.</p></div><div id="upcomingEventsMount"><div class="home-empty-state"><p>Official events will appear here when published.</p><a href="events.html">Visit Events</a></div></div></section>
 <section class="players-section players-preview page-section" id="top-winners" aria-labelledby="top-winners-title">
 <div class="section-heading"><div><span class="eyebrow">CELEBRATING EXCELLENCE</span><h2 id="top-winners-title">Our <em>Top Winners.</em></h2></div><p>Recognising the learners who keep growing, sharing their knowledge and inspiring others.</p></div>
-<div class="leaderboard leaderboard-preview" id="homepageLeaderboard" data-player-limit="3" aria-label="Top three winners"></div>
+<p class="demo-data-note">Demonstration profiles for layout preview — these are not verified competition standings.</p><div class="leaderboard leaderboard-preview" id="homepageLeaderboard" data-player-limit="3" aria-label="Demonstration top winner profiles"></div>
 <div class="players-preview-action"><a class="button button-gold" href="players.html">View all Top Winners <span aria-hidden="true">→</span></a></div>
 </section>
+<section class="home-content-section page-section" id="community-activity" aria-labelledby="community-activity-title"><div class="home-section-heading"><div><span class="eyebrow">FAITH IN FELLOWSHIP</span><h2 id="community-activity-title">Community <em>activity.</em></h2></div><p>Official platform updates and approved community highlights.</p></div><div id="communityActivityMount"><div class="home-empty-state"><p>Community updates will appear here when available.</p></div></div></section>
+<section class="home-content-section page-section" id="featured-saint" aria-labelledby="featured-saint-title"><div class="home-section-heading"><div><span class="eyebrow">WITNESSES OF FAITH</span><h2 id="featured-saint-title">Featured <em>saint.</em></h2></div><p>Discover the lives and witness of the saints through reviewed Catholic resources.</p></div><div id="featuredSaintMount"><div class="home-empty-state"><p>A reviewed saint feature will be published here.</p></div></div></section>
+<section class="home-content-section page-section" id="achievements" aria-labelledby="achievements-title"><div class="home-section-heading"><div><span class="eyebrow">CELEBRATING EVERY STEP</span><h2 id="achievements-title">Achievement <em>pathways.</em></h2></div><p>Existing quiz-result achievement tiers recognise participation and progress.</p></div><div id="achievementTiersMount"><div class="home-empty-state"><p>Achievement information will appear here.</p></div></div></section>
+<section class="home-content-section page-section" id="scripture-inspiration" aria-labelledby="scripture-title"><div class="home-section-heading"><div><span class="eyebrow">SACRED SCRIPTURE</span><h2 id="scripture-title">A word to <em>carry with you.</em></h2></div><p>Pause, read and reflect on the light of Christ.</p></div><article class="scripture-feature-card"><span aria-hidden="true">✝</span><blockquote>“I am the way and the truth and the life.”</blockquote><cite>John 14:6</cite><a class="text-link" href="learn.html">Explore the Learning Centre <span aria-hidden="true">→</span></a></article></section>
+<section class="home-content-section page-section" id="announcements" aria-labelledby="announcements-title"><div class="home-section-heading"><div><span class="eyebrow">FROM LUX CHRISTI</span><h2 id="announcements-title">Announcements &amp; <em>updates.</em></h2></div><p>Official platform news and important participation updates.</p></div><div id="announcementsMount"><div class="home-empty-state"><p>Official announcements will appear here when published.</p></div></div></section>
+<section class="home-content-section page-section" id="featured-videos" aria-labelledby="featured-videos-title"><div class="home-section-heading"><div><span class="eyebrow">WATCH &amp; LEARN</span><h2 id="featured-videos-title">Featured <em>content.</em></h2></div><p>Video and media resources will be shared here when officially published.</p></div><div id="featuredVideosMount"><div class="home-empty-state"><p>Featured videos are not available yet.</p></div></div></section>
 <section class="section page-section" id="explore">
 <div class="section-heading"><div><span class="eyebrow">EXPLORE THE PLATFORM</span><h2>Grow through <em>discovery.</em></h2></div><p>Learn at your pace, test what you know and celebrate every step forward.</p></div>
 <div class="feature-grid">

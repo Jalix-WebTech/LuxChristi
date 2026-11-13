@@ -798,6 +798,22 @@ function initFlow() {
     state.player = validation.value;
     showCountdown();
   });
+
+  // Homepage cards can deep-link to a specific existing quiz category or game.
+  // Only allow identifiers already present in the local activity registries.
+  const requestedActivity = new URLSearchParams(window.location.search).get("activity");
+  const requestedSelection = new URLSearchParams(window.location.search).get("selection");
+  if (["quiz", "games"].includes(requestedActivity) && requestedSelection) {
+    const activityButton = document.querySelector(`[data-select-activity="${requestedActivity}"]`);
+    if (activityButton) {
+      activityButton.click();
+      $("#activityNext").click();
+      const selectionButton = [...document.querySelectorAll("#selectionGrid [data-selection]")]
+        .find(button => button.dataset.selection === requestedSelection);
+      selectionButton?.click();
+      $("#activitySelection")?.scrollIntoView({ behavior: "auto", block: "start" });
+    }
+  }
 }
 
 export function initQuizPlatform() {

@@ -6,6 +6,9 @@ import legionOfMary from "./legion-of-mary.js";
 import sacredHeart from "./sacred-heart.js";
 import stAnthony from "./st-anthony.js";
 import otherDevotions from "./other-devotions.js";
+import { categoryOptions } from "./categories.js";
+
+export { categoryOptions };
 
 export const questionBanks = {
   "bible-knowledge": bibleKnowledge,
@@ -17,15 +20,3 @@ export const questionBanks = {
   "st-anthony": stAnthony,
   "other-devotions": otherDevotions,
 };
-
-export const categoryOptions = [
-  { value: "all", label: "All Categories" },
-  { value: "bible-knowledge", label: "Bible Knowledge" },
-  { value: "catholic-doctrine", label: "Catholic Doctrine" },
-  { value: "saints-and-virtues", label: "Saints and Virtues" },
-  { value: "riddles", label: "Riddles" },
-  { value: "legion-of-mary", label: "Legion of Mary" },
-  { value: "sacred-heart", label: "Sacred Heart" },
-  { value: "st-anthony", label: "St. Anthony" },
-  { value: "other-devotions", label: "Other Catholic Pious Societies and Devotions" },
-];

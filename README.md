@@ -88,3 +88,8 @@ The next architectural milestone is backend foundation and authentication planni
 ## Visual design system
 
 The current visual identity uses a charcoal-and-champagne-gold dark theme by default, with a complementary warm-cream light theme. Shared design tokens live in `css/tokens.css`; the visual refinement layer is `css/design-system.css`. The existing theme toggle and saved preference remain in use.
+
+
+## Homepage discovery experience
+
+The homepage now composes existing games, quiz categories and curated learning resources through local data services, with reusable horizontal carousel controls and clearly disclosed empty/demo states. See `docs/HOMEPAGE_ARCHITECTURE_V1.md` for the feature, data and future API boundaries. No backend or live statistics are included.

@@ -3,7 +3,7 @@
  * Caches the public Catholic-platform application shell only. Never cache
  * authentication tokens, private records, or personalised API responses.
  */
-const CACHE_VERSION = "lux-christi-shell-v15";
+const CACHE_VERSION = "lux-christi-shell-v16";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -44,7 +44,41 @@ const APP_SHELL = [
   "./assets/images/lux-christi-mark.svg",
   "./assets/icons/lux-christi-192.png",
   "./assets/icons/lux-christi-512.png",
-  "./assets/icons/lux-christi-maskable-512.png"
+  "./assets/icons/lux-christi-maskable-512.png",
+  "./css/homepage.css",
+  "./js/features/homepage/homepage.js",
+  "./js/components/carousel.js",
+  "./js/services/homepageService.js",
+  "./js/services/playerService.js",
+  "./js/data/homepageData.js",
+  "./js/games/index.js",
+  "./js/games/catalog.js",
+  "./js/games/bible-challenge.js",
+  "./js/games/catholic-riddles.js",
+  "./js/games/identify-saint.js",
+  "./js/games/catholic-symbols.js",
+  "./js/games/scripture-challenge.js",
+  "./js/games/match-saint-virtue.js",
+  "./js/question-banks/index.js",
+  "./js/question-banks/categories.js",
+  "./js/question-banks/catalog.js",
+  "./js/question-banks/bible-knowledge.js",
+  "./js/question-banks/catholic-doctrine.js",
+  "./js/question-banks/saints-and-virtues.js",
+  "./js/question-banks/riddles.js",
+  "./js/question-banks/legion-of-mary.js",
+  "./js/question-banks/sacred-heart.js",
+  "./js/question-banks/st-anthony.js",
+  "./js/question-banks/other-devotions.js",
+  "./js/quiz/achievements.js",
+  "./assets/images/games/bible-challenge.svg",
+  "./assets/images/games/catholic-riddles.svg",
+  "./assets/images/games/identify-saint.svg",
+  "./assets/images/games/catholic-symbols.svg",
+  "./assets/images/games/scripture-challenge.svg",
+  "./assets/images/games/match-saint-virtue.svg",
+  "./assets/images/quizzes/catholic-quiz.svg",
+  "./assets/images/learning/scripture-study.svg"
 ];
 
 self.addEventListener("install", event => {

@@ -56,7 +56,7 @@ body { background: var(--bg); color: var(--text); }
   border-radius: var(--radius-card);
   box-shadow: var(--shadow);
 }
-.daily-inspiration blockquote,.daily-inspiration strong,.competition-announcement h2,.winners-cta h2,
+.daily-inspiration blockquote,.daily-inspiration strong,.competition-announcement h1,.winners-cta h2,
 .verse-card strong { color: var(--text); }
 .daily-inspiration-reference span,.competition-announcement p,.winners-cta p { color: var(--text-secondary); }
 .daily-inspiration-reference strong,.daily-inspiration-mark,.verse-card span,.verse-card small { color: var(--gold-strong); }

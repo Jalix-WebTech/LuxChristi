@@ -1,4 +1,4 @@
-import { players } from "../data/playerData.js";
+import { getTopWinners } from "../services/playerService.js";
 
 const MAX_WINNERS = 20;
 export const INITIAL_WINNER_COUNT = 15;
@@ -64,11 +64,12 @@ function attachPhotoFallbacks(container) {
 }
 
 /** Render the full ranked list progressively; small previews stay intentionally compact. */
-export function initPlayers() {
+export async function initPlayers() {
   const leaderboards = document.querySelectorAll("#leaderboard, #homepageLeaderboard, #quizLeaderboard");
   if (!leaderboards.length) return;
 
-  const rankedWinners = getUniqueRankedWinners(players);
+  const records = await getTopWinners();
+  const rankedWinners = getUniqueRankedWinners(records);
 
   leaderboards.forEach(leaderboard => {
     const isFullPage = leaderboard.id === "leaderboard";

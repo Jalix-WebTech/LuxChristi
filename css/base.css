@@ -253,7 +253,7 @@
   box-shadow: var(--shadow);
 }
 .competition-announcement-copy { max-width: 760px; }
-.competition-announcement h2 { margin: 8px 0 10px; font-size: clamp(27px, 3.3vw, 39px); }
+.competition-announcement h1 { margin: 8px 0 10px; font-size: clamp(27px, 3.3vw, 39px); }
 .competition-announcement p { margin: 0; max-width: 680px; color: var(--muted); font-size: 14px; }
 .competition-announcement > .button { flex: 0 0 auto; }
 .community-photo { object-position: center 45%; }
@@ -374,3 +374,5 @@
 @media (prefers-reduced-motion: reduce) {
   .menu-toggle { transition: none; }
 }
+
+.demo-data-note{margin:0 0 18px;color:var(--text-muted);font-size:11px;line-height:1.6;text-align:center}

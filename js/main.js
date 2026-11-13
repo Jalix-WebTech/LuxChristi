@@ -20,6 +20,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   await safelyInitialize("Top Winners", initPlayers);
   await safelyInitialize("PWA support", async () => initPWA());
 
+  // Homepage discovery is loaded only on the homepage.
+  if (document.querySelector("[data-homepage]")) {
+    await safelyInitialize("homepage discovery", async () => {
+      const { initHomepage } = await import("./features/homepage/homepage.js");
+      await initHomepage();
+    });
+  }
+
   // Load learning-library behaviour only on the Learning Centre page.
   if (document.querySelector("#learningResourceGrid")) {
     await safelyInitialize("Learning Centre", async () => {
